@@ -1,25 +1,36 @@
-// 各ステップのパスワード
-const passwords = {
-    1: "1",
-    2: "2",
-    3: "3",
-    4: "4",
-    5: "5"
-};
+const pdfFiles = [
+    "pdfステップ1-1pdf.pdf",
+    "pdfステップ1-2pdf.pdf",
+    "pdfステップ1-3pdf.pdf"
+];
 
-// ステップを進める処理
-function checkPassword(step) {
-    let inputPassword = document.getElementById(`password${step}`).value;
-    if (inputPassword === passwords[step]) {
-        document.getElementById(`step${step}`).classList.add("hidden");
-        document.getElementById(`step${step + 1}`).classList.remove("hidden");
+const passwords = ["1", "2", "3", "4", "5"];
+let currentStep = 0;
+
+function checkPassword() {
+    const inputPassword = document.getElementById("password-input").value;
+    const errorMessage = document.getElementById("error-message");
+
+    if (inputPassword === passwords[currentStep]) {
+        errorMessage.classList.add("hidden");
+        nextStep();
     } else {
-        alert("パスワードが違います");
+        errorMessage.classList.remove("hidden");
     }
 }
 
-// ステップを戻る処理
-function prevStep(step) {
-    document.getElementById(`step${step + 1}`).classList.add("hidden");
-    document.getElementById(`step${step}`).classList.remove("hidden");
+function nextStep() {
+    if (currentStep < pdfFiles.length - 1) {
+        currentStep++;
+        document.getElementById("pdf-frame").src = pdfFiles[currentStep];
+        document.getElementById("password-input").value = "";
+    }
+}
+
+function prevStep() {
+    if (currentStep > 0) {
+        currentStep--;
+        document.getElementById("pdf-frame").src = pdfFiles[currentStep];
+        document.getElementById("password-input").value = "";
+    }
 }
