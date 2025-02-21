@@ -1,36 +1,68 @@
-const pdfFiles = [
-    "pdfステップ1-1pdf.pdf",
-    "pdfステップ1-2pdf.pdf",
-    "pdfステップ1-3pdf.pdf"
-];
-
-const passwords = ["1", "2", "3", "4", "5"];
-let currentStep = 0;
-
-function checkPassword() {
-    const inputPassword = document.getElementById("password-input").value;
-    const errorMessage = document.getElementById("error-message");
-
-    if (inputPassword === passwords[currentStep]) {
-        errorMessage.classList.add("hidden");
-        nextStep();
-    } else {
-        errorMessage.classList.remove("hidden");
-    }
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
 }
 
-function nextStep() {
-    if (currentStep < pdfFiles.length - 1) {
-        currentStep++;
-        document.getElementById("pdf-frame").src = pdfFiles[currentStep];
-        document.getElementById("password-input").value = "";
-    }
+.container {
+    margin: 20px auto;
+    max-width: 800px;
 }
 
-function prevStep() {
-    if (currentStep > 0) {
-        currentStep--;
-        document.getElementById("pdf-frame").src = pdfFiles[currentStep];
-        document.getElementById("password-input").value = "";
-    }
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* PDFビューワーのサイズ設定 */
+#pdf-viewer {
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* iframeのスクロール対応 */
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    display: block;
+}
+
+/* パスワード入力部分 */
+#password-container {
+    margin-top: 20px;
+}
+
+input {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    display: none;
+}
+
+#error-message {
+    color: red;
+    margin-top: 10px;
 }
