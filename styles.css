@@ -1,80 +1,52 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
 }
 
-.container {
-    margin: 20px auto;
-    max-width: 800px;
-}
-
-/* PDFビューワー設定 */
-#pdf-viewer {
-    width: 100%;
-    height: 80vh; /* 画面いっぱいに表示 */
+#viewer {
+    width: 100vw;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
 }
 
-/* PDF表示（objectタグを使用） */
-#pdf-frame {
-    width: 100%;
+iframe {
+    width: 90%;
     height: 100%;
     border: none;
 }
 
-/* パスワード入力部分 */
-#password-container {
-    margin-top: 20px;
-}
-
-input {
-    width: 60%;
-    max-width: 200px;
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 8px;
-    font-size: 16px;
+.controls {
+    margin-top: 10px;
 }
 
 button {
-    padding: 8px 15px;
-    background-color: #007bff;
-    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    margin: 5px;
     border: none;
     cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+
+button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+input[type="password"] {
+    width: 100px;
+    padding: 10px;
     font-size: 16px;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-.hidden {
-    display: none;
-}
-
-#error-message {
-    color: red;
-    margin-top: 5px;
-}
-
-/* スマホ向け設定 */
-@media screen and (max-width: 600px) {
-    #pdf-viewer {
-        height: 80vh; /* スマホでは少し小さめに調整 */
-    }
-
-    /* スマホではPDFがはみ出ないように縮小 */
-    #pdf-frame {
-        width: 100%;
-        height: 100%;
-        transform: scale(0.9); /* PDFを90%縮小して画面内に収める */
-        transform-origin: top center;
-    }
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    background-color: white;
+    color: black;
 }
