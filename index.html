@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF埋め込み</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="step" id="step1">
+            <h2>マインドアニメ版</h2>
+            <iframe src="マインドアニメ版.pdf"></iframe>
+            <input type="password" id="password1">
+            <button onclick="checkPassword(1)">次のステップへ</button>
+        </div>
+
+        <div class="step hidden" id="step2">
+            <h2>ステップ1-2</h2>
+            <iframe src="ステップ1-2.pdf"></iframe>
+            <input type="password" id="password2">
+            <button onclick="prevStep(1)">戻る</button>
+            <button onclick="checkPassword(2)">次のステップへ</button>
+        </div>
+
+        <div class="step hidden" id="step3">
+            <h2>ステップ1-3</h2>
+            <iframe src="ステップ1-3.pdf"></iframe>
+            <input type="password" id="password3">
+            <button onclick="prevStep(2)">戻る</button>
+            <button onclick="checkPassword(3)">次のステップへ</button>
+        </div>
+
+        <div class="step hidden" id="step4">
+            <h2>ステップ1-4</h2>
+            <iframe src="ステップ1-4.pdf"></iframe>
+            <input type="password" id="password4">
+            <button onclick="prevStep(3)">戻る</button>
+            <button onclick="checkPassword(4)">次のステップへ</button>
+        </div>
+
+        <div class="step hidden" id="step5">
+            <h2>ステップ1-5</h2>
+            <iframe src="ステップ1-5.pdf"></iframe>
+            <input type="password" id="password5">
+            <button onclick="prevStep(4)">戻る</button>
+            <button onclick="checkPassword(5)">次のステップへ</button>
+        </div>
+
+        <div class="step hidden" id="step6">
+            <h2>ステップ1-6</h2>
+            <iframe src="ステップ1-6.pdf"></iframe>
+            <button onclick="prevStep(5)">戻る</button>
+            <p>これで完了です！</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
