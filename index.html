@@ -3,60 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDF埋め込み</title>
+    <title>ステップ別PDF閲覧</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <div class="container">
-        <div class="step" id="step1">
-            <h2>マインドアニメ版</h2>
-            <embed src="pdf/マインドアニメ版.pdf" type="application/pdf">
-            <input type="password" id="password1">
-            <button onclick="checkPassword(1)">次のステップへ</button>
+        <h1>ステップ別PDF閲覧</h1>
+
+        <div id="pdf-viewer">
+            <iframe id="pdf-frame" src="pdfステップ1-1pdf.pdf"></iframe>
         </div>
 
-        <div class="step hidden" id="step2">
-            <h2>ステップ1-2</h2>
-            <embed src="pdf/ステップ1-2.pdf" type="application/pdf">
-            <input type="password" id="password2">
-            <button onclick="prevStep(1)">戻る</button>
-            <button onclick="checkPassword(2)">次のステップへ</button>
+        <div id="password-container">
+            <input type="password" id="password-input" placeholder="パスワードを入力" />
+            <button onclick="checkPassword()">次のステップへ</button>
+            <button onclick="prevStep()">戻る</button>
         </div>
 
-        <div class="step hidden" id="step3">
-            <h2>ステップ1-3</h2>
-            <embed src="pdf/ステップ1-3.pdf" type="application/pdf">
-            <input type="password" id="password3">
-            <button onclick="prevStep(2)">戻る</button>
-            <button onclick="checkPassword(3)">次のステップへ</button>
-        </div>
-
-        <div class="step hidden" id="step4">
-            <h2>ステップ1-4</h2>
-            <embed src="pdf/ステップ1-4.pdf" type="application/pdf">
-            <input type="password" id="password4">
-            <button onclick="prevStep(3)">戻る</button>
-            <button onclick="checkPassword(4)">次のステップへ</button>
-        </div>
-
-        <div class="step hidden" id="step5">
-            <h2>ステップ1-5</h2>
-            <embed src="pdf/ステップ1-5.pdf" type="application/pdf">
-            <input type="password" id="password5">
-            <button onclick="prevStep(4)">戻る</button>
-            <button onclick="checkPassword(5)">次のステップへ</button>
-        </div>
-
-        <div class="step hidden" id="step6">
-            <h2>ステップ1-6</h2>
-            <embed src="pdf/ステップ1-6.pdf" type="application/pdf">
-            <button onclick="prevStep(5)">戻る</button>
-            <p>これで完了です！</p>
-        </div>
+        <p id="error-message" class="hidden">パスワードが違います</p>
     </div>
 
     <script src="script.js"></script>
-
 </body>
 </html>
