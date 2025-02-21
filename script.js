@@ -16,12 +16,13 @@ const passwords = {
 let currentIndex = 0;
 
 function updateViewer() {
-    document.getElementById("pdfFrame").src = pdfFiles[currentIndex];
+    const pdfFrame = document.getElementById("pdfFrame");
+    pdfFrame.src = pdfFiles[currentIndex];
 
     const passwordInput = document.getElementById("passwordInput");
     const nextBtn = document.getElementById("nextBtn");
 
-    // ステップ1-1〜ステップ1-7はパスワードなしで進める
+    // ステップ1-1〜ステップ1-7はパスワードなし
     if (currentIndex <= 6) {
         passwordInput.style.display = "none";
         nextBtn.disabled = false;
@@ -33,6 +34,11 @@ function updateViewer() {
 
     // 「戻る」ボタンの有効・無効化
     document.getElementById("prevBtn").disabled = (currentIndex === 0);
+
+    // **ページを一番上から表示**
+    setTimeout(() => {
+        window.scrollTo(0, 0);
+    }, 100);
 }
 
 function nextStep() {
