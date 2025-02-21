@@ -22,7 +22,7 @@ function checkPassword() {
 function nextStep() {
     if (currentStep < pdfFiles.length - 1) {
         currentStep++;
-        document.getElementById("pdf-frame").src = pdfFiles[currentStep];
+        document.getElementById("pdf-frame").data = pdfFiles[currentStep];
         document.getElementById("password-input").value = "";
     }
 }
@@ -30,7 +30,7 @@ function nextStep() {
 function prevStep() {
     if (currentStep > 0) {
         currentStep--;
-        document.getElementById("pdf-frame").src = pdfFiles[currentStep];
+        document.getElementById("pdf-frame").data = pdfFiles[currentStep];
         document.getElementById("password-input").value = "";
     }
 }
