@@ -37,8 +37,13 @@ function updateViewer() {
 
     // **ページを一番上から表示**
     setTimeout(() => {
-        window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, behavior: "smooth" });
     }, 100);
+
+    // **iframeのスクロールを一番上にリセット**
+    pdfFrame.onload = function() {
+        pdfFrame.contentWindow.scrollTo(0, 0);
+    };
 }
 
 function nextStep() {
