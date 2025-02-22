@@ -9,13 +9,17 @@
 <body>
 
     <div id="viewer">
-        <iframe id="pdfFrame" src="ステップ1-1.pdf"></iframe>
+        <object id="pdfObject" type="application/pdf" data="ステップ1-1.pdf"></object>
     </div>
 
     <div class="controls">
         <button id="prevBtn" onclick="prevStep()" disabled>戻る</button>
         <input type="password" id="passwordInput" placeholder="" oninput="checkPassword()">
         <button id="nextBtn" onclick="nextStep()" disabled>次のステップへ</button>
+    </div>
+
+    <div class="pdf-link">
+        <a id="pdfLink" href="ステップ1-1.pdf" target="_blank">PDFを直接開く</a>
     </div>
 
     <script src="script.js"></script>
