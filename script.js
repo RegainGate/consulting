@@ -18,9 +18,11 @@ let currentIndex = 0;
 function updateViewer() {
     const pdfObject = document.getElementById("pdfObject");
     const pdfLink = document.getElementById("pdfLink");
+    const pdfTitle = document.getElementById("pdfTitle");
 
     pdfObject.data = pdfFiles[currentIndex];
     pdfLink.href = pdfFiles[currentIndex];
+    pdfTitle.textContent = "現在のファイル: " + pdfFiles[currentIndex];
 
     const passwordInput = document.getElementById("passwordInput");
     const nextBtn = document.getElementById("nextBtn");
