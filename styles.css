@@ -8,18 +8,16 @@ body {
 
 #viewer {
     width: 100vw;
-    height: 90vh; /* スマホの画面全体に表示 */
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
 }
 
-iframe {
-    width: 100%;
+object {
+    width: 90%;
     height: 100%;
     border: none;
-    overflow: auto; /* スクロール可能にする */
 }
 
 .controls {
@@ -53,11 +51,13 @@ input[type="password"] {
     color: black;
 }
 
-/* スマホ対応 */
-@media screen and (max-width: 768px) {
-    iframe {
-        width: 100%;
-        height: 100vh;
-        overflow-y: auto; /* スクロールを有効化 */
-    }
+/* PDFを直接開くリンク */
+.pdf-link {
+    margin-top: 15px;
+}
+
+.pdf-link a {
+    font-size: 16px;
+    text-decoration: none;
+    color: #007bff;
 }
