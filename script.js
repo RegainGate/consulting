@@ -16,8 +16,11 @@ const passwords = {
 let currentIndex = 0;
 
 function updateViewer() {
-    const pdfFrame = document.getElementById("pdfFrame");
-    pdfFrame.src = pdfFiles[currentIndex];
+    const pdfObject = document.getElementById("pdfObject");
+    const pdfLink = document.getElementById("pdfLink");
+
+    pdfObject.data = pdfFiles[currentIndex];
+    pdfLink.href = pdfFiles[currentIndex];
 
     const passwordInput = document.getElementById("passwordInput");
     const nextBtn = document.getElementById("nextBtn");
@@ -37,8 +40,7 @@ function updateViewer() {
 
     // **ページを一番上から表示**
     setTimeout(() => {
-        window.scrollTo(0, 0);  // ページ全体のスクロールをリセット
-        pdfFrame.contentWindow?.scrollTo(0, 0);  // PDF内のスクロールをリセット
+        window.scrollTo(0, 0);
     }, 100);
 }
 
