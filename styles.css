@@ -6,9 +6,15 @@ body {
     padding: 0;
 }
 
+h2 {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
 #viewer {
     width: 100vw;
-    height: 90vh;
+    height: 80vh; /* 少し下げてタイトルを表示 */
     display: flex;
     justify-content: center;
     align-items: center;
