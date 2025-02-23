@@ -1,4 +1,5 @@
 const pdfFiles = [
+    "コンサル　手順.pdf",  // 最初のページ
     "ステップ1-1.pdf", "ステップ1-2.pdf", "ステップ1-3.pdf",
     "ステップ1-4.pdf", "ステップ1-5.pdf", "ステップ1-6.pdf",
     "ステップ1-7.pdf", "ステップ2-1.pdf", "ステップ3-1.pdf",
@@ -28,7 +29,7 @@ function updateViewer() {
     const nextBtn = document.getElementById("nextBtn");
 
     // ステップ1-1〜ステップ1-7はパスワードなし
-    if (currentIndex <= 6) {
+    if (currentIndex <= 7) {
         passwordInput.style.display = "none";
         nextBtn.disabled = false;
     } else {
