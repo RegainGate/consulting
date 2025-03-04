@@ -9,12 +9,17 @@ const passwords = {
     "ステップ2-2.pdf": "COACH"
 };
 
+const hints = {}; // ステップ2では暗号ボタンなし（ステップ1と同じ形にするため）
+
 let currentIndex = 0;
 
 function updateViewer() {
     const pdfObject = document.getElementById("pdfObject");
     const pdfLink = document.getElementById("pdfLink");
     const pdfTitle = document.getElementById("pdfTitle");
+    const hintContainer = document.getElementById("hintContainer");
+    const hintText = document.getElementById("hintText");
+    const hintBtn = document.getElementById("hintBtn");
 
     pdfObject.data = pdfFiles[currentIndex];
     pdfLink.href = pdfFiles[currentIndex];
@@ -22,6 +27,17 @@ function updateViewer() {
 
     const passwordInput = document.getElementById("passwordInput");
     const nextBtn = document.getElementById("nextBtn");
+
+    // ステップ1と同じ形にするための暗号ボタン設定（ステップ2では非表示）
+    if (hints[pdfFiles[currentIndex]]) {
+        hintContainer.style.display = "block";
+        hintText.textContent = "";
+        hintBtn.onclick = function () {
+            hintText.textContent = hints[pdfFiles[currentIndex]];
+        };
+    } else {
+        hintContainer.style.display = "none";
+    }
 
     // パスワードの設定
     if (passwords[pdfFiles[currentIndex]]) {
