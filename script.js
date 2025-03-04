@@ -1,17 +1,12 @@
 const pdfFiles = [
-    "コンサル.pdf",  // ファイル名を修正
-    "ステップ1-1.pdf", "ステップ1-2.pdf", "ステップ1-3.pdf",
-    "ステップ1-4.pdf", "ステップ1-5.pdf", "ステップ1-6.pdf",
-    "ステップ1-7.pdf", "ステップ2-1.pdf", "ステップ3-1.pdf",
-    "ステップ4-1.pdf", "ステップ5-1.pdf", "ステップ6-1.pdf"
+    "ステップ2-1.pdf",
+    "ステップ2-2.pdf",
+    "ステップ2-3.pdf"
 ];
 
 const passwords = {
-    "ステップ2-1.pdf": "1",
-    "ステップ3-1.pdf": "2",
-    "ステップ4-1.pdf": "3",
-    "ステップ5-1.pdf": "4",
-    "ステップ6-1.pdf": "5"
+    "ステップ2-1.pdf": "chloe",
+    "ステップ2-2.pdf": "coach"
 };
 
 let currentIndex = 0;
@@ -28,14 +23,14 @@ function updateViewer() {
     const passwordInput = document.getElementById("passwordInput");
     const nextBtn = document.getElementById("nextBtn");
 
-    // ステップ1-1〜ステップ1-7はパスワードなし
-    if (currentIndex <= 7) {
+    // パスワードの設定
+    if (passwords[pdfFiles[currentIndex]]) {
+        passwordInput.style.display = "inline";
+        passwordInput.value = "";
+        nextBtn.disabled = true;
+    } else {
         passwordInput.style.display = "none";
         nextBtn.disabled = false;
-    } else {
-        passwordInput.style.display = "inline";
-        passwordInput.value = ""; // 入力をクリア
-        nextBtn.disabled = true;
     }
 
     // 「戻る」ボタンの有効・無効化
@@ -62,7 +57,7 @@ function prevStep() {
 }
 
 function checkPassword() {
-    const passwordInput = document.getElementById("passwordInput").value;
+    const passwordInput = document.getElementById("passwordInput").value.toLowerCase();
     const currentPdf = pdfFiles[currentIndex];
 
     if (passwords[currentPdf] && passwordInput === passwords[currentPdf]) {
