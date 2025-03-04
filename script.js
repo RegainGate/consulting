@@ -5,8 +5,8 @@ const pdfFiles = [
 ];
 
 const passwords = {
-    "ステップ2-1.pdf": "chloe",
-    "ステップ2-2.pdf": "coach"
+    "ステップ2-1.pdf": "Chloe",
+    "ステップ2-2.pdf": "COACH"
 };
 
 let currentIndex = 0;
@@ -57,7 +57,7 @@ function prevStep() {
 }
 
 function checkPassword() {
-    const passwordInput = document.getElementById("passwordInput").value.toLowerCase();
+    const passwordInput = document.getElementById("passwordInput").value;
     const currentPdf = pdfFiles[currentIndex];
 
     if (passwords[currentPdf] && passwordInput === passwords[currentPdf]) {
