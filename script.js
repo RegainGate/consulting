@@ -1,10 +1,15 @@
 const pdfFiles = [
-    "ステップ2-1.pdf",
+   "ステップ2-1.pdf",
     "ステップ2-2.pdf",
     "ステップ2-3.pdf"
 ];
 
 const passwords = {
+   "ステップ2-1.pdf": "Chloe",
+    "ステップ2-2.pdf": "COACH"
+};
+
+const hints = {
     "ステップ2-1.pdf": "Chloe",
     "ステップ2-2.pdf": "COACH"
 };
@@ -26,7 +31,7 @@ function updateViewer() {
     const passwordInput = document.getElementById("passwordInput");
     const nextBtn = document.getElementById("nextBtn");
 
-  // 暗号ボタンの表示設定
+    // 暗号ボタンの表示設定
     if (hints[pdfFiles[currentIndex]]) {
         hintContainer.style.display = "block";
         hintText.textContent = "";
