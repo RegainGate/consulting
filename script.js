@@ -10,8 +10,8 @@ const passwords = {
 };
 
 const hints = {
-    "ステップ2-1.pdf": "Chloe",
-    "ステップ2-2.pdf": "COACH"
+    "ステップ3-1.pdf": "Chloe",
+    "ステップ3-2.pdf": "COACH"
 };
 
 let currentIndex = 0;
